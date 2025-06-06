@@ -1,0 +1,27 @@
+/* App.css */
+
+/* 1) Ensure the html, body and root container are full‑height and marginless */
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* 2) Span the .window element to the full viewport */
+.window {
+  position: fixed;   /* or absolute */
+  top: 0;
+  left: 0;
+  width: 100vw;      /* full viewport width */
+  height: 100vh;     /* full viewport height */
+  
+  box-shadow: 2px 2px 0px #000;
+  border: 2px outset gray;
+  background-color: #c0c0c0;
+  overflow: auto;    /* if content might scroll */
+  background-color: #8f8788;
+  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+}
