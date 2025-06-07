@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import About from './pages/About';
 import Career from './pages/Career';
 import Interests from './pages/Interests';
-import Blog from './pages/Blog';
+import BlogLayout from './components/BlogLayout';
+import BlogPost from './components/BlogPost';
 
 function App() {
   return (
@@ -23,7 +24,10 @@ function App() {
                 <Route path="/" element={<About />} />
                 <Route path="/career" element={<Career />} />
                 <Route path="/interests" element={<Interests />} />
-                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog" element={<BlogLayout />}> 
+                  <Route index element={<div className="blog-content"><p>Select a blog.</p></div>} />
+                  <Route path=":slug" element={<BlogPost />} />
+                </Route>
               </Routes>
             </div>
           </div>
