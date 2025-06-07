@@ -6,6 +6,11 @@ import Interests from './pages/Interests';
 import BlogLayout from './components/BlogLayout';
 import BlogPost from './components/BlogPost';
 
+import windowIcon from './styles/icons/window_icon_centered.png';
+import folderIcon from './styles/icons/folder_icon_centered.png';
+import computerIcon from './styles/icons/computer_icon_centered.png';
+import notepadIcon from './styles/icons/notepad_icon_centered.png';
+
 function App() {
   return (
     <Router>
@@ -19,16 +24,28 @@ function App() {
           </div>
           <menu role="tablist">
             <li role="tab">
-              <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>About</NavLink>
+              <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>
+                <img src={windowIcon} alt="About icon" className="menu-icon" />
+                About
+              </NavLink>
             </li>
             <li role="tab">
-              <NavLink to="/career" className={({ isActive }) => isActive ? 'active' : ''}>Career</NavLink>
+              <NavLink to="/career" className={({ isActive }) => isActive ? 'active' : ''}>
+                <img src={folderIcon} alt="Career icon" className="menu-icon" />
+                Career
+              </NavLink>
             </li>
             <li role="tab">
-              <NavLink to="/interests" className={({ isActive }) => isActive ? 'active' : ''}>Interests</NavLink>
+              <NavLink to="/interests" className={({ isActive }) => isActive ? 'active' : ''}>
+                <img src={computerIcon} alt="Interests icon" className="menu-icon" />
+                Interests
+              </NavLink>
             </li>
             <li role="tab">
-              <NavLink to="/blog" className={({ isActive }) => isActive ? 'active' : ''}>Blog</NavLink>
+              <NavLink to="/blog" className={({ isActive }) => isActive ? 'active' : ''}>
+                <img src={notepadIcon} alt="Blog icon" className="menu-icon" />
+                Blog
+              </NavLink>
             </li>
           </menu>
 
