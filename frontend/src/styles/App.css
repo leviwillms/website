@@ -59,3 +59,8 @@ body,
   justify-content: space-between;
   margin-top: 0.5rem;
 }
+  background-color: #c0c0c0;
+  overflow: auto;    /* if content might scroll */
+  background-color: #8f8788;
+  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+}
