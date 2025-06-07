@@ -6,10 +6,10 @@ import Interests from './pages/Interests';
 import BlogLayout from './components/BlogLayout';
 import BlogPost from './components/BlogPost';
 
-import windowIcon from './styles/icons/window_icon_centered.png';
-import folderIcon from './styles/icons/folder_icon_centered.png';
-import computerIcon from './styles/icons/computer_icon_centered.png';
-import notepadIcon from './styles/icons/notepad_icon_centered.png';
+import windowIcon from './styles/icons/window.png';
+import folderIcon from './styles/icons/folder.png';
+import computerIcon from './styles/icons/computer.png';
+import notepadIcon from './styles/icons/notepad.png';
 
 function App() {
   return (
