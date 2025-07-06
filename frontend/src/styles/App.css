@@ -47,6 +47,10 @@ menu[role="tablist"] li a.active {
   padding: 0 4px;
 }
 
+menu[role="tablist"] li.selected-tab {
+  box-shadow: inset -1px 0 #0a0a0a, inset -2px 0 grey;
+}
+
 .blog-container {
   display: flex;
   height: 100%;
