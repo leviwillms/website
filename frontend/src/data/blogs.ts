@@ -2,6 +2,7 @@ export interface Blog {
   title: string;
   subtitle: string;
   category: string;
+  folder: string;
   author: string;
   date: string;
   body: string;
@@ -25,6 +26,7 @@ export const blogs: Blog[] = [
     title: 'Welcome to the Retro Blog',
     subtitle: 'An introduction',
     category: 'General',
+    folder: 'Journal',
     author: 'Admin',
     date: '2024-01-01',
     body: 'This is the first post on our totally retro themed blog.',
@@ -34,6 +36,7 @@ export const blogs: Blog[] = [
     title: 'Second Post',
     subtitle: 'More content',
     category: 'Updates',
+    folder: 'Journal',
     author: 'Admin',
     date: '2024-02-01',
     body: 'Here is another entry with more exciting news.',
@@ -43,6 +46,7 @@ export const blogs: Blog[] = [
     title: 'Third Post',
     subtitle: 'Even more',
     category: 'Updates',
+    folder: 'Work',
     author: 'Admin',
     date: '2024-03-01',
     body: 'The retro fun continues with yet another post.',
@@ -52,6 +56,7 @@ export const blogs: Blog[] = [
     title: 'Fourth Post',
     subtitle: 'Still going',
     category: 'General',
+    folder: 'Work/Projects',
     author: 'Admin',
     date: '2024-04-01',
     body: 'We just keep writing posts for the sake of it.',
@@ -61,6 +66,7 @@ export const blogs: Blog[] = [
     title: 'Fifth Post',
     subtitle: 'Wrapping up',
     category: 'General',
+    folder: 'Thesis/2024',
     author: 'Admin',
     date: '2024-05-01',
     body: 'Our final post in this small demo list.',
@@ -70,6 +76,7 @@ export const blogs: Blog[] = [
     title: 'Multi Page Test',
     subtitle: 'Long content test',
     category: 'Testing',
+    folder: 'Thesis/2024',
     author: 'Admin',
     date: '2024-06-01',
     body: longPostBody,

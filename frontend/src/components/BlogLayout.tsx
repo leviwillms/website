@@ -1,11 +1,11 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import BlogList from './BlogList';
+import BlogFileTree from './BlogFileTree';
 
 const BlogLayout: React.FC = () => (
   <div className="blog-container">
     <Outlet />
-    <BlogList />
+    <BlogFileTree />
   </div>
 );
 
