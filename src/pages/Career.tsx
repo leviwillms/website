@@ -17,7 +17,7 @@ const Career: React.FC = () => (
       <legend>Current Position</legend>
       <div className="job-entry">
         <div className="job-header">
-          <h3>Product Manager</h3>
+          <h3>Product and Engineering Manager</h3>
           <span className="company">ThreatIQ</span>
           <span className="duration">June 2025 - Present</span>
         </div>
@@ -26,7 +26,7 @@ const Career: React.FC = () => (
             <li>Lead delivery across backend, frontend, and infrastructure teams for CyberIQ365, a cloud-native cybersecurity compliance platform</li>
             <li>Drive architecture and implementation for automated compliance reporting and data transformation workflows</li>
             <li>Set and uphold engineering standards for readability, maintainability, testing, and reliability through design docs, reviews, and delivery practices</li>
-            <li>Partner with security and business stakeholders to translate requirements into clear technical plans</li>
+            <li>Partner with security, operations, and business stakeholders to translate requirements into clear technical plans</li>
             <li>Streamline engineering workflows through use of AI-assisted tooling and automation</li>
           </ul>
         </div>
@@ -48,6 +48,7 @@ const Career: React.FC = () => (
             <li>Worked with business stakeholders to define product vision, scope, and requirements for a compliance-focused SaaS platform</li>
             <li>Designed functional and non-functional system requirements for multi-tenant workflows and scalable delivery</li>
             <li>Coordinated and mentored engineers during early platform build-out and foundational architecture decisions</li>
+            <li>Owned the data pipeline; transforming company and industry data to create foundational models</li>
           </ul>
         </div>
       </div>

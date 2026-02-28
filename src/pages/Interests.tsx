@@ -74,7 +74,6 @@ const Interests: React.FC = () => {
             <div className="text-box">
               <p><strong>Description:</strong></p>
               <p>{hobbies[selectedHobby as keyof typeof hobbies].description}</p>
-              
               <p><strong>Specific Interests:</strong></p>
               <ul>
                 {hobbies[selectedHobby as keyof typeof hobbies].details.map((detail, index) => (
@@ -92,23 +91,23 @@ const Interests: React.FC = () => {
           <div className="project-item">
             <div className="project-icon">💻</div>
             <div className="project-info">
-              <h4>Retro Website Framework</h4>
-              <p>Building a CSS framework for creating Windows 98-style web interfaces</p>
+              <h4>PPX: Parsed Page eXplorer</h4>
+              <p>Building the best document processing OCR framework in the world.</p>
               <div className="progress-container">
-                <AnimatedProgressBar targetWidth={85} delay={200} />
-                <span className="progress-text">85% Complete</span>
+                <AnimatedProgressBar targetWidth={45} delay={200} />
+                <span className="progress-text">45% Complete</span>
               </div>
             </div>
           </div>
           
           <div className="project-item">
-            <div className="project-icon">🎵</div>
+            <div className="project-icon">📖</div>
             <div className="project-info">
-              <h4>Synthwave Album</h4>
-              <p>Producing a collection of retro-inspired electronic music tracks</p>
+              <h4>Reading</h4>
+              <p>George Orwells splendid 1984.</p>
               <div className="progress-container">
-                <AnimatedProgressBar targetWidth={40} delay={350} />
-                <span className="progress-text">40% Complete</span>
+                <AnimatedProgressBar targetWidth={95} delay={350} />
+                <span className="progress-text">95% Complete</span>
               </div>
             </div>
           </div>

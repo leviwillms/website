@@ -10,6 +10,7 @@ export interface Blog {
   body: string;
   slug: string;
   pinned?: boolean;
+  published?: boolean;
 }
 
 // Parse metadata from markdown content
@@ -63,8 +64,20 @@ function parseMarkdown(content: string, filename: string, folder: string): Blog 
     }
   }
 
+  // Extract published status - try from Published: line, default to true
+  let published = true;
+  let publishedLineIndex = -1;
+  for (let i = 0; i < Math.min(10, lines.length); i++) {
+    const line = lines[i].trim();
+    if (line.toLowerCase().startsWith('published:')) {
+      published = line.substring(10).trim().toLowerCase() !== 'false';
+      publishedLineIndex = i;
+      break;
+    }
+  }
+
   // Build body: remove title and metadata lines, keep the rest
-  const metadataLines = new Set([titleLineIndex, dateLineIndex, authorLineIndex, pinnedLineIndex]);
+  const metadataLines = new Set([titleLineIndex, dateLineIndex, authorLineIndex, pinnedLineIndex, publishedLineIndex]);
   const bodyLines = lines.filter((_, i) => !metadataLines.has(i));
 
   // Remove leading empty lines
@@ -87,6 +100,7 @@ function parseMarkdown(content: string, filename: string, folder: string): Blog 
     body,
     slug,
     pinned,
+    published,
   };
 }
 
@@ -117,5 +131,8 @@ function loadBlogs(): Blog[] {
   return blogs;
 }
 
-// Export the loaded blogs
-export const blogs = loadBlogs();
+// Load all blogs (including unpublished for potential admin use)
+export const allBlogs = loadBlogs();
+
+// Export only published blogs for public display
+export const blogs = allBlogs.filter(blog => blog.published !== false);
