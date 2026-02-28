@@ -2,30 +2,10 @@ import React, { useState } from 'react';
 import AnimatedProgressBar from '../components/AnimatedProgressBar';
 
 const Interests: React.FC = () => {
-  const [selectedHobby, setSelectedHobby] = useState('programming');
+  const [selectedHobby, setSelectedHobby] = useState('reading');
 
   const hobbies = {
-    programming: {
-      title: 'Programming & Tech',
-      description: 'Building software, exploring new languages, and creating digital solutions.',
-      details: [
-        'Full-stack web development',
-        'Open source contributions',
-        'Learning new programming paradigms',
-        'Building side projects and tools'
-      ]
-    },
-    retro: {
-      title: 'Retro Computing',
-      description: 'Collecting and restoring vintage computers and software.',
-      details: [
-        'Windows 95/98 nostalgia',
-        'Classic arcade games',
-        'Vintage hardware restoration',
-        'Old-school programming languages'
-      ]
-    },
-    music: {
+    reading: {
       title: 'Reading',
       description: 'There is no better way to ease the mind than having a piece of classic literature in ones hand.',
       details: [
@@ -34,16 +14,34 @@ const Interests: React.FC = () => {
         'All things Lewis and Tolkien. There is no better imagination than Tolkien in the 20th century, and no one articulated ideas better than C.S. Lewis himself.'
       ]
     },
-    gaming: {
-      title: 'Video Games',
-      description: 'Playing and analyzing games across different platforms and eras.',
+    sports: {
+      title: 'Sports',
+      description: 'Watching sports, playing sports, and holding a generally useless amount of player/team statistics in my head.',
       details: [
-        'Indie game development',
-        'Retro gaming preservation',
-        'Game design analysis',
-        'Speedrunning classic titles'
+        'Playing hockey, basketball, and baseball.',
+        'Can name every Stanley Cup winner back to the 90s in order. Working on Larry O Brian',
+        'Know the true pain of being a Leafs fan.. :/'
+      ]
+    },
+    programming: {
+      title: 'Programming & Tech',
+      description: 'Tinkering, collecting, and learning of the history of computation :)',
+      details: [
+        'Full-stack web development',
+        'Collecting classic computers (somewhat of a Lenovo-maxi with my x200)',
+        'Finding the intersection between technology and real-life uses',
+        'Building side projects and tools'
+      ]
+    },
+    retro: {
+      title: 'Woodwork',
+      description: 'Building things with my hands.. because we all need to get away from the screens',
+      details: [
+        'Want to one day have my own shop to build furniture'
       ]
     }
+
+
   };
 
   return (
@@ -121,6 +119,12 @@ const Interests: React.FC = () => {
         <button className="retro-button">View Projects</button>
         <button className="retro-button">Contact</button>
         <button className="retro-button">Collaborate</button>
+      </div>
+
+      <div className="status-bar">
+        <div className="status-item">🎯 Interests</div>
+        <div className="status-item">Categories: {Object.keys(hobbies).length}</div>
+        <div className="status-item">Selected: {hobbies[selectedHobby as keyof typeof hobbies].title}</div>
       </div>
     </div>
   );

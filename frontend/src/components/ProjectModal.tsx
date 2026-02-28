@@ -120,6 +120,19 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             </div>
           )}
 
+          {project.screenshots && project.screenshots.length > 0 && (
+            <div className="fieldset">
+              <legend>Screenshots</legend>
+              <div className="project-modal-screenshots">
+                {project.screenshots.map((src, index) => (
+                  <div key={index} className="project-modal-screenshot">
+                    <img src={src} alt={`${project.name} screenshot ${index + 1}`} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {project.screenshot && isPDF && (
             <div className="fieldset">
               <legend>Document</legend>

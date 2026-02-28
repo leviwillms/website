@@ -22,7 +22,7 @@ body,
   box-sizing: border-box;
   box-shadow: 2px 2px 0px #000;
   border: 2px outset gray;
-  overflow: auto;
+  overflow: hidden;
   background-color: #dcdcdc;
   background-image: url('https://www.transparenttextures.com/patterns/paper.png');
 }
@@ -66,8 +66,6 @@ menu[role="tablist"] li a.active {
 /* Page Content Styles */
 .page-content {
   padding: 1rem;
-  height: 100%;
-  overflow-y: auto;
   font-family: 'MS Sans Serif', sans-serif;
   font-size: 14px;
 }
@@ -192,8 +190,28 @@ menu[role="tablist"] li a.active {
   display: none;
 }
 
+.about-profile-section .info-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .about-profile-section .info-grid {
   flex: 1;
+}
+
+.profile-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.profile-actions .retro-button {
+  white-space: nowrap;
+  text-align: center;
 }
 
 /* Progress Bar Styles */
@@ -277,6 +295,9 @@ menu[role="tablist"] li a.active {
   margin-top: 1rem;
   padding-top: 1rem;
   border-top: 1px solid #808080;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
 }
 
 /* Career Page Styles */
@@ -442,6 +463,8 @@ menu[role="tablist"] li a.active {
 .blog-container {
   display: flex;
   height: 100%;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .blog-content {
@@ -449,6 +472,7 @@ menu[role="tablist"] li a.active {
   padding: 1rem;
   overflow-y: auto;
   font-size: 18px;
+  min-height: 0;
 }
 
 .blog-list {
@@ -642,6 +666,28 @@ menu[role="tablist"] li a.active {
   padding: 2px;
   height: calc(100% - 4px);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inner tabpanel window - override outer window styles */
+.window[role="tabpanel"] {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 100%;
+  height: auto;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.window[role="tabpanel"] > .window-body {
+  height: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 /* Scrollbar Styling */
@@ -976,6 +1022,26 @@ menu[role="tablist"] li a.active {
   font-size: 10px;
   margin-left: 8px;
   flex-shrink: 0;
+}
+
+/* Active/selected file in tree */
+.file-tree-file.active {
+  background-color: #000080 !important;
+}
+
+.file-tree-file.active .file-name,
+.file-tree-file.active .file-name:hover {
+  color: #ffffff !important;
+  background-color: transparent !important;
+  font-weight: bold;
+}
+
+.file-tree-file.active .file-date {
+  color: #c0c0c0;
+}
+
+.file-tree-file.active .file-icon {
+  filter: brightness(1.2);
 }
 
 .file-tree-contents {
@@ -1317,6 +1383,12 @@ menu[role="tablist"] li a.active {
   display: block;
 }
 
+.project-modal-screenshots {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .project-modal-statusbar {
   background-color: #c0c0c0;
   border-top: 1px solid #808080;
@@ -1581,4 +1653,623 @@ button:focus,
 
 .blog-landing-footer p {
   margin: 0;
+}
+
+/* Markdown Content Styles */
+.markdown-content {
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  color: #000080;
+}
+
+.markdown-content h1 {
+  font-size: 1.5em;
+  border-bottom: 2px solid #c0c0c0;
+  padding-bottom: 0.3em;
+}
+
+.markdown-content h2 {
+  font-size: 1.3em;
+  border-bottom: 1px solid #c0c0c0;
+  padding-bottom: 0.2em;
+}
+
+.markdown-content h3 {
+  font-size: 1.1em;
+}
+
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  font-size: 1em;
+}
+
+.markdown-content p {
+  margin: 1em 0;
+}
+
+.markdown-content a {
+  color: #0000ff;
+  text-decoration: underline;
+}
+
+.markdown-content a:hover {
+  color: #ff0000;
+}
+
+.markdown-content a:visited {
+  color: #800080;
+}
+
+.markdown-content strong {
+  font-weight: bold;
+}
+
+.markdown-content em {
+  font-style: italic;
+}
+
+.markdown-content code {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #f0f0f0;
+  padding: 2px 4px;
+  border: 1px solid #c0c0c0;
+  font-size: 0.9em;
+}
+
+.markdown-content pre {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  padding: 12px;
+  border: 2px inset #c0c0c0;
+  overflow-x: auto;
+  margin: 1em 0;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.markdown-content pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+
+.markdown-content blockquote {
+  border-left: 4px solid #808080;
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  background-color: #f8f8f8;
+  color: #606060;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin: 1em 0;
+  padding-left: 2em;
+}
+
+.markdown-content li {
+  margin: 0.5em 0;
+}
+
+.markdown-content hr {
+  border: none;
+  border-top: 2px inset #c0c0c0;
+  margin: 1.5em 0;
+}
+
+/* GitHub-style tables - force fit to container */
+.markdown-content table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 12px;
+}
+
+.markdown-content th,
+.markdown-content td {
+  border: 1px solid #c0c0c0;
+  padding: 6px 8px;
+  text-align: left;
+  vertical-align: top;
+  overflow: hidden;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.markdown-content th {
+  background-color: #c0c0c0;
+  font-weight: bold;
+  color: #000;
+}
+
+.markdown-content tr:nth-child(even) {
+  background-color: #f0f0f0;
+}
+
+.markdown-content tr:hover {
+  background-color: #e8e8e8;
+}
+
+/* Abbreviations with tooltips - use data-tip to avoid native tooltip */
+.markdown-content [data-tip] {
+  text-decoration: underline dotted;
+  cursor: help;
+  position: relative;
+  display: inline-block;
+}
+
+.markdown-content [data-tip]:hover::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 0;
+  background-color: #ffffcc;
+  color: #000;
+  padding: 4px 8px;
+  border: 1px solid #000;
+  font-size: 11px;
+  white-space: nowrap;
+  z-index: 1000;
+  box-shadow: 2px 2px 0px #808080;
+  pointer-events: none;
+}
+
+/* Allow tooltips to overflow table cells */
+.markdown-content td:has([data-tip]),
+.markdown-content th:has([data-tip]) {
+  overflow: visible;
+}
+
+/* PHP-style variable highlighting (Notepad++ style) */
+.markdown-content .php-var {
+  color: #0000BB;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+}
+
+/* Images in markdown */
+.markdown-content img {
+  max-width: 600px;
+  height: auto;
+  border: 2px inset #c0c0c0;
+  margin: 1em 0;
+}
+
+/* Floated images - use with <img class="float-left"> or <img class="float-right"> */
+.markdown-content img.float-left {
+  float: left;
+  margin: 0 1em 1em 0;
+  max-width: 250px;
+}
+
+.markdown-content img.float-right {
+  float: right;
+  margin: 0 0 1em 1em;
+  max-width: 250px;
+}
+
+/* Centered images */
+.markdown-content img.center {
+  display: block;
+  margin: 1em auto;
+}
+
+/* Small inline images */
+.markdown-content img.small {
+  max-width: 150px;
+}
+
+.markdown-content img.medium {
+  max-width: 300px;
+}
+
+/* Clear floats */
+.markdown-content .clear {
+  clear: both;
+}
+
+/* Inline PDF button in markdown */
+.markdown-content .pdf-link-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  font-size: inherit;
+  vertical-align: baseline;
+  margin: 0 2px;
+}
+
+/* Images inside tables - uniform size and centered */
+.markdown-content td img {
+  width: 280px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Center table cells that only contain images */
+.markdown-content td:has(img) {
+  vertical-align: middle;
+  text-align: center;
+  white-space: normal;
+}
+
+/* Task lists (GFM) */
+.markdown-content input[type="checkbox"] {
+  margin-right: 0.5em;
+}
+
+/* Strikethrough (GFM) */
+.markdown-content del {
+  text-decoration: line-through;
+  color: #808080;
+}
+
+/* ============================================
+   Windows 98 High Contrast Theme
+   ============================================ */
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+  z-index: 9999;
+  font-size: 10px;
+  padding: 4px 8px;
+}
+
+/* High Contrast Theme Styles */
+[data-theme="high-contrast"] .window {
+  background-color: #000000;
+  background-image: none;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .window-body {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+[data-theme="high-contrast"] .banner {
+  border-bottom: 2px solid #ffff00;
+}
+
+[data-theme="high-contrast"] menu[role="tablist"] {
+  background-color: #000000;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] menu[role="tablist"] li a {
+  color: #ffffff;
+  background-color: #000000;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] menu[role="tablist"] li a:hover {
+  background-color: #000080;
+  color: #ffff00;
+}
+
+[data-theme="high-contrast"] menu[role="tablist"] li a.active {
+  background-color: #ffff00;
+  color: #000000;
+}
+
+[data-theme="high-contrast"] .page-content {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+[data-theme="high-contrast"] .window-header {
+  background: #000080;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .fieldset {
+  background-color: #000000;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .fieldset legend {
+  background-color: #000080;
+  color: #ffffff;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .text-box {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .info-item {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .toolbar {
+  background-color: #000000;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .toolbar-button {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .toolbar-button:hover {
+  background-color: #000080;
+  color: #ffff00;
+}
+
+[data-theme="high-contrast"] .retro-button {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .retro-button:hover {
+  background-color: #000080;
+  color: #ffff00;
+}
+
+[data-theme="high-contrast"] .job-header {
+  background-color: #000080;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .duration {
+  background-color: #ffff00;
+  color: #000000;
+}
+
+[data-theme="high-contrast"] .skill-tag {
+  background-color: #00ff00;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+[data-theme="high-contrast"] .listbox {
+  background-color: #000000;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .listbox-item {
+  color: #ffffff;
+  border-color: #333333;
+}
+
+[data-theme="high-contrast"] .listbox-item:hover {
+  background-color: #000080;
+  color: #ffff00;
+}
+
+[data-theme="high-contrast"] .listbox-item.selected {
+  background-color: #ffff00;
+  color: #000000;
+}
+
+[data-theme="high-contrast"] .status-bar {
+  background-color: #000000;
+  border-color: #ffff00;
+  color: #ffffff;
+}
+
+[data-theme="high-contrast"] .progress-bar {
+  background-color: #000000;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .progress-fill {
+  background: linear-gradient(90deg, #00ff00 0%, #00aa00 100%);
+}
+
+[data-theme="high-contrast"] .progress-text {
+  color: #ffffff;
+}
+
+[data-theme="high-contrast"] .stat-value {
+  color: #00ffff;
+}
+
+[data-theme="high-contrast"] .skill-category h4 {
+  color: #00ffff;
+}
+
+[data-theme="high-contrast"] .profile-photo {
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .blog-preview-item {
+  background-color: #000000;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .blog-preview-title {
+  color: #00ffff;
+}
+
+[data-theme="high-contrast"] .blog-preview-meta {
+  color: #c0c0c0;
+}
+
+[data-theme="high-contrast"] .blog-preview-date {
+  color: #00ff00;
+}
+
+[data-theme="high-contrast"] .blog-preview-excerpt {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .blog-landing-footer {
+  background-color: #000080;
+  color: #ffffff;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .file-tree {
+  background-color: #000000;
+}
+
+[data-theme="high-contrast"] .file-tree-item {
+  color: #ffffff;
+}
+
+[data-theme="high-contrast"] .file-tree-item:hover {
+  background-color: #000080;
+}
+
+[data-theme="high-contrast"] .file-tree-item.selected {
+  background-color: #ffff00;
+  color: #000000;
+}
+
+[data-theme="high-contrast"] .file-tree-file.active {
+  background-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .file-tree-file.active .file-name {
+  color: #000000;
+}
+
+[data-theme="high-contrast"] .file-tree-file.active .file-date {
+  color: #000080;
+}
+
+[data-theme="high-contrast"] .markdown-content {
+  color: #ffffff;
+}
+
+[data-theme="high-contrast"] .markdown-content a {
+  color: #00ffff;
+}
+
+[data-theme="high-contrast"] .markdown-content a:hover {
+  color: #ffff00;
+}
+
+[data-theme="high-contrast"] .markdown-content a:visited {
+  color: #ff00ff;
+}
+
+[data-theme="high-contrast"] .markdown-content code {
+  background-color: #1a1a1a;
+  color: #00ff00;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .markdown-content blockquote {
+  border-color: #ffff00;
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+[data-theme="high-contrast"] .markdown-content table {
+  background-color: #000000;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .markdown-content th {
+  background-color: #000080;
+  color: #ffffff;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .markdown-content td {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .markdown-content tr {
+  background-color: #000000;
+}
+
+[data-theme="high-contrast"] .markdown-content tr:nth-child(even) {
+  background-color: #1a1a1a;
+}
+
+[data-theme="high-contrast"] .markdown-content tr:hover {
+  background-color: #000080;
+}
+
+[data-theme="high-contrast"] .markdown-content ul,
+[data-theme="high-contrast"] .markdown-content ol {
+  color: #ffffff;
+}
+
+[data-theme="high-contrast"] .markdown-content li {
+  color: #ffffff;
+}
+
+[data-theme="high-contrast"] .markdown-content p {
+  color: #ffffff;
+}
+
+[data-theme="high-contrast"] .markdown-content h1,
+[data-theme="high-contrast"] .markdown-content h2,
+[data-theme="high-contrast"] .markdown-content h3,
+[data-theme="high-contrast"] .markdown-content h4,
+[data-theme="high-contrast"] .markdown-content h5,
+[data-theme="high-contrast"] .markdown-content h6 {
+  color: #00ffff;
+}
+
+[data-theme="high-contrast"] .markdown-content hr {
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .project-card {
+  background-color: #000000;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .project-card:hover {
+  border-color: #00ffff;
+}
+
+[data-theme="high-contrast"] .project-modal-overlay {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+[data-theme="high-contrast"] .project-modal {
+  background-color: #000000;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .project-modal-header {
+  background-color: #000080;
+  border-color: #ffff00;
+}
+
+[data-theme="high-contrast"] .crt-overlay {
+  display: none;
+}
+
+[data-theme="high-contrast"] .crt-scanlines {
+  display: none;
+}
+
+[data-theme="high-contrast"] .crt-flicker {
+  display: none;
 }

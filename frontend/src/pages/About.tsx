@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import AnimatedProgressBar from '../components/AnimatedProgressBar';
 import RetroPDFViewer from '../components/RetroPDFViewer';
+import aboutContent from '../data/about.md?raw';
 
 const About: React.FC = () => {
   const [showResume, setShowResume] = useState(false);
@@ -37,27 +41,21 @@ const About: React.FC = () => {
               <strong>Location:</strong> Toronto, Canada
             </div>
             <div className="info-item">
-              <strong>Occupation:</strong> Software Developer
+              <strong>Current Role:</strong> Product/Engineering Manager
             </div>
             <div className="info-item">
-              <strong>Interests:</strong> Technology, reading, sports, Jesus Christ and my family :)
+              <strong>Interests:</strong> Technology, reading, sports, faith and my family :)
             </div>
           </div>
         </div>
       </div>
 
       <div className="fieldset">
-        <legend>Biography</legend>
-        <div className="text-box">
-          <p>Welcome to my retro-styled personal website! I'm a passionate software developer who loves creating
-          digital experiences that blend nostalgia with modern functionality.</p>
-
-          <p>This website is built with React and Go, styled to look like classic Windows 98 applications.
-          It's a tribute to the golden age of personal computing when interfaces were simple, functional,
-          and had character.</p>
-
-          <p>When I'm not coding, you can find me exploring new technologies, reading about software architecture,
-          or reminiscing about the good old days of computing.</p>
+        <legend>About Me</legend>
+        <div className="text-box markdown-content">
+          <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+            {aboutContent}
+          </ReactMarkdown>
         </div>
       </div>
 
@@ -161,6 +159,12 @@ const About: React.FC = () => {
           </div>
         </div>
       )}
+
+      <div className="status-bar">
+        <div className="status-item">👤 About Me</div>
+        <div className="status-item">📍 Toronto, Canada</div>
+        <div className="status-item">💼 Software Developer</div>
+      </div>
     </div>
   );
 };

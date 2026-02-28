@@ -12,6 +12,8 @@ import BlogLanding from './components/BlogLanding';
 import CRTEffect from './components/CRTEffect';
 import PageTransition from './components/PageTransition';
 import StartupSequence from './components/StartupSequence';
+import ThemeToggle from './components/ThemeToggle';
+import { ThemeProvider } from './context/ThemeContext';
 
 import windowIcon from './styles/icons/window.png';
 import folderIcon from './styles/icons/folder.png';
@@ -24,6 +26,7 @@ function AppContent() {
   return (
     <>
       <CRTEffect />
+      <ThemeToggle />
       <div className="window">
         <div className="window-body">
           <div className="banner">
@@ -114,13 +117,19 @@ function App() {
   };
 
   if (showStartup) {
-    return <StartupSequence onComplete={handleStartupComplete} />;
+    return (
+      <ThemeProvider>
+        <StartupSequence onComplete={handleStartupComplete} />
+      </ThemeProvider>
+    );
   }
 
   return (
-    <Router>
-      <AppContent />
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </ThemeProvider>
   );
 }
 
