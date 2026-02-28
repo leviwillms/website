@@ -19,6 +19,7 @@ import windowIcon from './styles/icons/window.png';
 import folderIcon from './styles/icons/folder.png';
 import computerIcon from './styles/icons/computer.png';
 import notepadIcon from './styles/icons/notepad.png';
+import addressBookIcon from './styles/icons/address_book.png';
 
 function AppContent() {
   const location = useLocation();
@@ -56,7 +57,7 @@ function AppContent() {
             </li>
             <li role="tab">
               <NavLink to="/interests" className={({ isActive }) => isActive ? 'active' : ''}>
-                <img src={computerIcon} alt="Interests icon" className="menu-icon" />
+                <img src={addressBookIcon} alt="Interests icon" className="menu-icon" />
                 Interests
               </NavLink>
             </li>
