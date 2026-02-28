@@ -2273,3 +2273,619 @@ button:focus,
 [data-theme="high-contrast"] .crt-flicker {
   display: none;
 }
+
+/* ============================================
+   Mobile Responsiveness
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* ===========================================
+     Phase 1: Foundation & Tab Navigation
+     =========================================== */
+
+  /* Banner - reduce height */
+  .banner {
+    height: 80px;
+  }
+
+  .banner .banner-logo {
+    height: 60px;
+  }
+
+  /* Tab Navigation - wrap to two rows */
+  menu[role="tablist"] {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  menu[role="tablist"] li {
+    flex-shrink: 0;
+  }
+
+  menu[role="tablist"] li a {
+    padding: 6px 10px;
+    font-size: 11px;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+  }
+
+  .menu-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+  }
+
+  /* ===========================================
+     Phase 2: Typography & Touch Targets
+     =========================================== */
+
+  /* Base page content */
+  .page-content {
+    padding: 0.75rem;
+    font-size: 16px;
+  }
+
+  /* Window headers */
+  .window-header h2 {
+    font-size: 13px;
+  }
+
+  /* Fieldset legends */
+  .fieldset legend {
+    font-size: 13px;
+  }
+
+  /* Text boxes */
+  .text-box {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  /* Info items */
+  .info-item {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  /* Status bar */
+  .status-bar {
+    font-size: 12px;
+    padding: 4px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Progress text */
+  .progress-text {
+    font-size: 12px;
+  }
+
+  /* Stat labels */
+  .stat-label {
+    min-width: 120px;
+    font-size: 13px;
+  }
+
+  .stat-value {
+    font-size: 13px;
+  }
+
+  /* Main retro buttons - 44px touch targets */
+  .retro-button {
+    padding: 12px 20px;
+    font-size: 14px;
+    min-height: 44px;
+    min-width: 44px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+
+  /* Toolbar buttons */
+  .toolbar-button {
+    padding: 10px 14px;
+    font-size: 13px;
+    min-height: 44px;
+  }
+
+  /* Toolbar - allow wrap */
+  .toolbar {
+    flex-wrap: wrap;
+  }
+
+  /* Button groups */
+  .button-group {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  /* Listbox items - touch targets */
+  .listbox-item {
+    padding: 12px 16px;
+    font-size: 14px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ===========================================
+     Phase 3: Layout Stacking
+     =========================================== */
+
+  /* About Profile Section - stack vertically */
+  .about-profile-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-photo-container {
+    margin-bottom: 1rem;
+  }
+
+  .profile-photo,
+  .profile-photo-placeholder {
+    width: 120px;
+    height: 120px;
+  }
+
+  .about-profile-section .info-section {
+    width: 100%;
+  }
+
+  .about-profile-section .info-grid {
+    text-align: left;
+  }
+
+  /* Profile actions */
+  .profile-actions {
+    justify-content: center;
+  }
+
+  .profile-actions .retro-button {
+    flex: 1 1 auto;
+    max-width: 150px;
+  }
+
+  /* Info Grid - 2 columns to 1 column */
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  /* Interests Container - stack vertically */
+  .interests-container {
+    flex-direction: column;
+    height: auto;
+    gap: 1rem;
+  }
+
+  .hobby-selector {
+    width: 100%;
+    order: 1;
+  }
+
+  .hobby-selector .listbox {
+    height: 150px;
+  }
+
+  .hobby-details {
+    order: 2;
+    width: 100%;
+  }
+
+  /* Skills Grid - single column */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .skill-tag {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  /* Career job headers */
+  .job-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .job-header h3 {
+    font-size: 14px;
+  }
+
+  .company {
+    font-size: 12px;
+  }
+
+  .duration {
+    font-size: 11px;
+    align-self: flex-start;
+  }
+
+  /* Stats container */
+  .stats-container {
+    gap: 12px;
+  }
+
+  .stat-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .progress-bar {
+    width: 100%;
+  }
+
+  .progress-container {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  /* Project items (Interests page) */
+  .project-item {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .project-icon {
+    margin-bottom: 8px;
+  }
+
+  .project-info {
+    width: 100%;
+  }
+
+  .project-info h4 {
+    font-size: 14px;
+  }
+
+  .project-info p {
+    font-size: 13px;
+  }
+
+  /* ===========================================
+     Phase 4: Blog Drawer (CSS part)
+     =========================================== */
+
+  /* Blog container becomes single column */
+  .blog-container {
+    flex-direction: column;
+    position: relative;
+  }
+
+  /* Blog content takes full width */
+  .blog-content {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 16px;
+  }
+
+  /* Blog file tree becomes slide-in drawer */
+  .blog-list {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100vh;
+    z-index: 1000;
+    transition: right 0.3s ease;
+    box-shadow: -4px 0 8px rgba(0,0,0,0.3);
+    border-left: 2px outset #c0c0c0;
+  }
+
+  .blog-list.open {
+    right: 0;
+  }
+
+  /* Overlay behind drawer */
+  .blog-drawer-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  .blog-drawer-overlay.open {
+    display: block;
+  }
+
+  /* Toggle button for drawer */
+  .blog-drawer-toggle {
+    display: flex;
+    position: fixed;
+    bottom: 60px;
+    right: 16px;
+    z-index: 998;
+    background: #c0c0c0;
+    border: 2px outset #c0c0c0;
+    padding: 12px;
+    font-size: 20px;
+    min-width: 48px;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .blog-drawer-toggle:active {
+    border: 2px inset #c0c0c0;
+  }
+
+  /* File tree items - larger touch targets */
+  .file-tree-item {
+    padding: 10px 8px;
+    font-size: 13px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .file-tree-file .file-name {
+    font-size: 13px;
+  }
+
+  .file-tree-file .file-date {
+    font-size: 11px;
+  }
+
+  /* Blog landing footer */
+  .blog-landing-footer p {
+    font-size: 14px;
+  }
+
+  /* Blog preview items */
+  .blog-preview-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .blog-preview-title {
+    font-size: 16px;
+  }
+
+  .blog-preview-date {
+    font-size: 12px;
+  }
+
+  .blog-preview-meta {
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+  }
+
+  .blog-preview-excerpt {
+    font-size: 14px;
+  }
+
+  .blog-preview-read {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* ===========================================
+     Phase 5: Modal & Dialog Responsiveness
+     =========================================== */
+
+  /* Project Modal */
+  .project-modal-window {
+    width: 95%;
+    max-width: none;
+    max-height: 90%;
+    margin: 20px auto;
+  }
+
+  .project-modal-body {
+    padding: 12px;
+  }
+
+  .project-modal-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .project-modal-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .project-modal-icon img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .project-modal-emoji {
+    font-size: 32px;
+  }
+
+  .project-modal-title-info h2 {
+    font-size: 16px;
+  }
+
+  .project-modal-links {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .project-modal-links .retro-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .project-modal-statusbar {
+    font-size: 11px;
+  }
+
+  .project-modal-close {
+    width: 24px;
+    height: 22px;
+    font-size: 14px;
+  }
+
+  /* Contact Dialog */
+  .contact-dialog {
+    width: 90%;
+    min-width: auto;
+    max-width: 95%;
+    margin: 0 auto;
+  }
+
+  .contact-dialog-body {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .contact-dialog-icon {
+    margin-bottom: 12px;
+  }
+
+  .contact-dialog-info {
+    width: 100%;
+  }
+
+  .contact-dialog-row {
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;
+    margin-bottom: 12px;
+  }
+
+  .contact-dialog-buttons {
+    flex-direction: column;
+    width: 100%;
+    padding: 12px 16px 16px;
+  }
+
+  .contact-dialog-buttons .retro-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* PDF Viewer */
+  .pdf-viewer-window {
+    width: 98%;
+    height: 95%;
+    max-width: none;
+  }
+
+  .pdf-viewer-titlebar {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  .pdf-viewer-close {
+    width: 24px;
+    height: 22px;
+    font-size: 14px;
+  }
+
+  /* ===========================================
+     Phase 6: Portfolio Grid & Remaining
+     =========================================== */
+
+  /* Portfolio desktop grid */
+  .desktop {
+    grid-template-columns: repeat(auto-fill, 90px);
+    grid-auto-rows: 110px;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .desktop-icon {
+    width: 82px;
+    padding: 8px;
+  }
+
+  .desktop-icon-image,
+  .desktop-icon-emoji {
+    width: 52px;
+    height: 52px;
+  }
+
+  .desktop-icon-emoji {
+    font-size: 40px;
+  }
+
+  .desktop-icon-label {
+    font-size: 12px;
+    max-width: 82px;
+    margin-top: 6px;
+  }
+
+  /* Markdown content responsiveness */
+  .markdown-content {
+    font-size: 16px;
+  }
+
+  .markdown-content h1 {
+    font-size: 1.4em;
+  }
+
+  .markdown-content h2 {
+    font-size: 1.25em;
+  }
+
+  .markdown-content h3 {
+    font-size: 1.1em;
+  }
+
+  .markdown-content pre {
+    font-size: 11px;
+    padding: 8px;
+    overflow-x: auto;
+  }
+
+  .markdown-content table {
+    font-size: 11px;
+    display: block;
+    overflow-x: auto;
+  }
+
+  .markdown-content th,
+  .markdown-content td {
+    padding: 6px;
+    min-width: 80px;
+  }
+
+  .markdown-content img {
+    max-width: 100%;
+  }
+
+  .markdown-content img.float-left,
+  .markdown-content img.float-right {
+    float: none;
+    display: block;
+    margin: 1em auto;
+    max-width: 100%;
+  }
+
+  .markdown-content td img {
+    width: auto;
+    max-width: 200px;
+  }
+
+  /* Theme toggle - move above drawer button */
+  .theme-toggle {
+    bottom: 116px;
+  }
+}
+
+/* Hide drawer toggle on desktop */
+@media (min-width: 769px) {
+  .blog-drawer-toggle,
+  .blog-drawer-overlay {
+    display: none !important;
+  }
+}

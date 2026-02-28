@@ -49,9 +49,10 @@ interface FolderProps {
   expandedFolders: Set<string>;
   toggleFolder: (path: string) => void;
   currentSlug?: string;
+  onNavigate?: () => void;
 }
 
-const Folder: React.FC<FolderProps> = ({ node, level, expandedFolders, toggleFolder, currentSlug }) => {
+const Folder: React.FC<FolderProps> = ({ node, level, expandedFolders, toggleFolder, currentSlug, onNavigate }) => {
   const isExpanded = expandedFolders.has(node.path);
   const hasContent = node.children.length > 0 || node.blogs.length > 0;
 
@@ -82,6 +83,7 @@ const Folder: React.FC<FolderProps> = ({ node, level, expandedFolders, toggleFol
               expandedFolders={expandedFolders}
               toggleFolder={toggleFolder}
               currentSlug={currentSlug}
+              onNavigate={onNavigate}
             />
           ))}
 
@@ -92,7 +94,7 @@ const Folder: React.FC<FolderProps> = ({ node, level, expandedFolders, toggleFol
               style={{ paddingLeft: `${(level + 1) * 16}px` }}
             >
               <span className="file-icon">📄</span>
-              <Link to={`/blog/${blog.slug}`} className="file-name">
+              <Link to={`/blog/${blog.slug}`} className="file-name" onClick={onNavigate}>
                 {blog.title}
               </Link>
               <span className="file-date">{blog.date}</span>
@@ -104,7 +106,11 @@ const Folder: React.FC<FolderProps> = ({ node, level, expandedFolders, toggleFol
   );
 };
 
-const BlogFileTree: React.FC = () => {
+interface BlogFileTreeProps {
+  onNavigate?: () => void;
+}
+
+const BlogFileTree: React.FC<BlogFileTreeProps> = ({ onNavigate }) => {
   const { slug } = useParams<{ slug: string }>();
   const tree = useMemo(() => buildTree(blogs), []);
 
@@ -147,7 +153,7 @@ const BlogFileTree: React.FC = () => {
   };
 
   return (
-    <div className="blog-list file-tree">
+    <>
       <div className="file-tree-header">
         <span className="file-tree-title">Explorer</span>
       </div>
@@ -158,9 +164,10 @@ const BlogFileTree: React.FC = () => {
           expandedFolders={expandedFolders}
           toggleFolder={toggleFolder}
           currentSlug={slug}
+          onNavigate={onNavigate}
         />
       </div>
-    </div>
+    </>
   );
 };
 
