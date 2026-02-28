@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useMemo, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { blogs, Blog } from '../data/blogs';
 
 interface TreeNode {
@@ -48,9 +48,10 @@ interface FolderProps {
   level: number;
   expandedFolders: Set<string>;
   toggleFolder: (path: string) => void;
+  currentSlug?: string;
 }
 
-const Folder: React.FC<FolderProps> = ({ node, level, expandedFolders, toggleFolder }) => {
+const Folder: React.FC<FolderProps> = ({ node, level, expandedFolders, toggleFolder, currentSlug }) => {
   const isExpanded = expandedFolders.has(node.path);
   const hasContent = node.children.length > 0 || node.blogs.length > 0;
 
@@ -80,13 +81,14 @@ const Folder: React.FC<FolderProps> = ({ node, level, expandedFolders, toggleFol
               level={level + 1}
               expandedFolders={expandedFolders}
               toggleFolder={toggleFolder}
+              currentSlug={currentSlug}
             />
           ))}
 
           {node.blogs.map(blog => (
             <div
               key={blog.slug}
-              className="file-tree-item file-tree-file"
+              className={`file-tree-item file-tree-file ${blog.slug === currentSlug ? 'active' : ''}`}
               style={{ paddingLeft: `${(level + 1) * 16}px` }}
             >
               <span className="file-icon">📄</span>
@@ -103,11 +105,34 @@ const Folder: React.FC<FolderProps> = ({ node, level, expandedFolders, toggleFol
 };
 
 const BlogFileTree: React.FC = () => {
+  const { slug } = useParams<{ slug: string }>();
   const tree = useMemo(() => buildTree(blogs), []);
+
+  // Find the folder path for the current blog
+  const currentBlog = slug ? blogs.find(b => b.slug === slug) : undefined;
+  const currentFolderPath = currentBlog?.folder || '';
+
   const [expandedFolders, setExpandedFolders] = useState<Set<string>>(() => {
     // Start with top-level folders expanded
     return new Set(tree.children.map(c => c.path));
   });
+
+  // Auto-expand folder containing current blog
+  useEffect(() => {
+    if (currentFolderPath) {
+      setExpandedFolders(prev => {
+        const next = new Set(prev);
+        // Expand all parent folders
+        const parts = currentFolderPath.split('/').filter(Boolean);
+        let path = '';
+        parts.forEach(part => {
+          path = path ? `${path}/${part}` : part;
+          next.add(path);
+        });
+        return next;
+      });
+    }
+  }, [currentFolderPath]);
 
   const toggleFolder = (path: string) => {
     setExpandedFolders(prev => {
@@ -132,6 +157,7 @@ const BlogFileTree: React.FC = () => {
           level={0}
           expandedFolders={expandedFolders}
           toggleFolder={toggleFolder}
+          currentSlug={slug}
         />
       </div>
     </div>
