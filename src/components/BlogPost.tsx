@@ -10,6 +10,7 @@ const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug?: string }>();
   const post = blogs.find(b => b.slug === slug);
   const [pdfViewer, setPdfViewer] = useState<{ url: string; title: string } | null>(null);
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   if (!post) {
     return (
@@ -74,6 +75,13 @@ const BlogPost: React.FC = () => {
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw]}
             components={{
+              img: ({ node, ...props }) => (
+                <img
+                  {...props}
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => setLightbox({ src: props.src || '', alt: props.alt || '' })}
+                />
+              ),
               // Handle spans with data-pdf attribute for PDF viewer
               span: ({ node, children, ...props }) => {
                 const dataPdf = (props as Record<string, unknown>)['data-pdf'] as string | undefined;
@@ -108,6 +116,20 @@ const BlogPost: React.FC = () => {
           title={pdfViewer.title}
           onClose={() => setPdfViewer(null)}
         />
+      )}
+
+      {lightbox && (
+        <div className="lightbox-overlay" onClick={() => setLightbox(null)}>
+          <div className="lightbox-window" onClick={(e) => e.stopPropagation()}>
+            <div className="window-header">
+              <h2>Image Viewer - {lightbox.alt || 'Image'}</h2>
+              <button className="toolbar-button" onClick={() => setLightbox(null)}>✕</button>
+            </div>
+            <div className="lightbox-body">
+              <img src={lightbox.src} alt={lightbox.alt} />
+            </div>
+          </div>
+        </div>
       )}
 
       <div className="status-bar">
