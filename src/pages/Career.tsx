@@ -14,6 +14,10 @@ const Career: React.FC = () => (
     </div>
 
     <div className="fieldset">
+      Product and Engineering Manager with a strong engineering background and <b><u>7+ years</u></b> of hands-on experience building cloud-native, data-heavy SaaS platforms from 0-1. Leading end-to-end delivery of complex systems from design to rollout, with strengths in scalable backend services, automation, and engineering quality (testing, CI/CD, reliability). Known for bridging Product and Engineering to ship high-impact features and raise technical standards.
+    </div>
+
+    <div className="fieldset">
       <legend>Current Position</legend>
       <div className="job-entry">
         <div className="job-header">
@@ -22,12 +26,16 @@ const Career: React.FC = () => (
           <span className="duration">June 2025 - Present</span>
         </div>
         <div className="text-box">
+          <p>ThreatIQ is a cybersecurity service provider based in Toronto, Canada and operates with 20+ employees. I joined the company midway through 2023 in what would eventually become the integral role of building their industry leading auditing platform Zelenix.</p>
           <ul>
-            <li>Lead delivery across backend, frontend, and infrastructure teams for CyberIQ365, a cloud-native cybersecurity compliance platform</li>
-            <li>Drive architecture and implementation for automated compliance reporting and data transformation workflows</li>
+            <li>Lead delivery across backend, frontend, and infrastructure teams for <b>Zelenix</b>, a cloud-native cybersecurity compliance and auditing platform.</li>
+            <li>Own architecture and implementation for automated compliance reporting and data transformation workflows (<b>FastAPI</b>, <b>Redis</b>, <b>OpenAI API</b>), improving consistency and reducing <b>manual auditor effort by up to 33%</b></li>
             <li>Set and uphold engineering standards for readability, maintainability, testing, and reliability through design docs, reviews, and delivery practices</li>
-            <li>Partner with security, operations, and business stakeholders to translate requirements into clear technical plans</li>
-            <li>Streamline engineering workflows through use of AI-assisted tooling and automation</li>
+            <li>Partner with security and business stakeholders to translate core business requirements into clear technical plans and prioritized work</li>
+            <li>Establish delivery processes and success metrics to support scale and long-term platform growth</li>
+            <li>Streamline engineering workflows by designing AI-first systems while ensuring software integrity</li>
+            <li>Built a reusable compliance framework data layer that scaled platform support from <b>2 frameworks</b> (SOC 2, PCI DSS 4.0.1) to <b>80+</b>, enabling faster expansion of audit offerings.</li>
+            <li>Refactored core project-service to reduce average <b>API response times by 33%</b>, improving application performance and user experience.</li>
           </ul>
         </div>
       </div>
@@ -44,11 +52,10 @@ const Career: React.FC = () => (
         </div>
         <div className="text-box">
           <ul>
-            <li>Led early-stage product development and technical direction for CyberIQ365 prior to a formal product management function</li>
+            <li>Led early-stage product development and technical direction for <b>Zelenix</b> prior to a formal product management function</li>
+            <li>Managed core application data team to map <b>600+ SOC 2 and PCI controls</b> across <b>1000+ evidence types</b>. Achieving confident data integrity across primary service offerings.</li>
             <li>Worked with business stakeholders to define product vision, scope, and requirements for a compliance-focused SaaS platform</li>
-            <li>Designed functional and non-functional system requirements for multi-tenant workflows and scalable delivery</li>
             <li>Coordinated and mentored engineers during early platform build-out and foundational architecture decisions</li>
-            <li>Owned the data pipeline; transforming company and industry data to create foundational models</li>
           </ul>
         </div>
       </div>
@@ -63,7 +70,6 @@ const Career: React.FC = () => (
           <ul>
             <li>Conducted applied research across blockchain systems, distributed platforms, and secure remote work environments</li>
             <li>Sole developer of internal security tools used for analysis and operational support</li>
-            <li>Claroty-certified OT Cybersecurity Analyst</li>
           </ul>
         </div>
       </div>
@@ -75,6 +81,7 @@ const Career: React.FC = () => (
           <span className="duration">April 2021 - May 2023</span>
         </div>
         <div className="text-box">
+          <p>Starship dreams was a software solutions company where I worked among a small team of 7 developers on various software projects. Most notably was a project for Freightcom, one of the largest shipment aggregators in Canada, where we built out their core services platform.</p>
           <ul>
             <li>Developed large-scale data synchronization and migration tooling to safely transition a major shipping aggregator from a legacy platform to a new system</li>
             <li>Built data validation and repair pipelines to ensure business continuity during platform migration</li>
@@ -131,13 +138,17 @@ const Career: React.FC = () => (
           </div>
         </div>
         <div className="skill-category">
-          <h4>Cloud & DevOps</h4>
+          <h4>DevTools</h4>
           <div className="skill-list">
             <span className="skill-tag">AWS</span>
             <span className="skill-tag">Docker</span>
             <span className="skill-tag">CI/CD</span>
             <span className="skill-tag">Postgres</span>
             <span className="skill-tag">MySQL</span>
+            <span className="skill-tag">GCP</span>
+            <span className="skill-tag">Azure</span>
+            <span className="skill-tag">Claude Code</span>
+            <span className="skill-tag">Codex</span>
           </div>
         </div>
       </div>
