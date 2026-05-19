@@ -9,6 +9,7 @@ interface ProjectModalProps {
 
 const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
   const [showPDF, setShowPDF] = useState(false);
+  const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 
   const isPDF = project.screenshot?.toLowerCase().endsWith('.pdf');
 
@@ -70,7 +71,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
           <div className="fieldset">
             <legend>Description</legend>
             <div className="text-box">
-              <p>{project.description}</p>
+              {project.description.split('\n\n').map((p, i) => <p key={i}>{p}</p>)}
             </div>
           </div>
 
@@ -114,7 +115,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
           {project.screenshot && !isPDF && (
             <div className="fieldset">
               <legend>Screenshot</legend>
-              <div className="project-modal-screenshot">
+              <div className="project-modal-screenshot" onClick={() => setFullscreenImage(project.screenshot!)}>
                 <img src={project.screenshot} alt={`${project.name} screenshot`} />
               </div>
             </div>
@@ -125,7 +126,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
               <legend>Screenshots</legend>
               <div className="project-modal-screenshots">
                 {project.screenshots.map((src, index) => (
-                  <div key={index} className="project-modal-screenshot">
+                  <div key={index} className="project-modal-screenshot" onClick={() => setFullscreenImage(src)}>
                     <img src={src} alt={`${project.name} screenshot ${index + 1}`} />
                   </div>
                 ))}
@@ -150,6 +151,13 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
           <span>{project.year}</span>
         </div>
       </div>
+
+      {fullscreenImage && (
+        <div className="image-lightbox-overlay" onClick={(e) => { e.stopPropagation(); setFullscreenImage(null); }}>
+          <img src={fullscreenImage} alt="Full size" />
+          <button className="image-lightbox-close" onClick={() => setFullscreenImage(null)}>✕</button>
+        </div>
+      )}
 
       {showPDF && project.screenshot && (
         <RetroPDFViewer

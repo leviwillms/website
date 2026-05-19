@@ -14,6 +14,7 @@ const DesktopIcon: React.FC<DesktopIconProps> = ({ project, isSelected, onClick 
     <div
       className={`desktop-icon ${isSelected ? 'selected' : ''}`}
       onClick={onClick}
+      title={`${project.name} - Double-click to open`}
     >
       {isEmoji ? (
         <div className="desktop-icon-emoji">{project.icon}</div>

@@ -7,8 +7,13 @@ const Portfolio: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [modalProject, setModalProject] = useState<Project | null>(null);
 
+  const isMobile = 'ontouchstart' in window || window.matchMedia('(max-width: 768px)').matches;
+
   const handleIconClick = (project: Project) => {
-    if (selectedProject?.id === project.id) {
+    if (isMobile) {
+      setSelectedProject(project);
+      setModalProject(project);
+    } else if (selectedProject?.id === project.id) {
       // Double-click behavior: open modal
       setModalProject(project);
     } else {
